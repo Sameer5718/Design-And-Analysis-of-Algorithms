@@ -1,0 +1,36 @@
+#include<stdio.h>
+
+void ins(int arr[],int n){
+    int count=0;
+    for(int i=1;i<n;i++){
+        int key=arr[i];
+       int j=i-1;
+        while(j>=0 && arr[j]>key){
+            arr[j+1]=arr[j];
+            j=j-1;
+            count++;
+        }
+        arr[j+1]=key;
+    }
+    printf("number of shifts are %d \n",count+1);
+    printf("the sorted array is\n");
+    for(int i=0;i<n;i++){
+        printf(" %d\n",arr[i]);
+    }
+}
+int main(){
+    int arr[100];
+    int n;
+    printf("enter size");
+    scanf("%d",&n);
+    printf("enter array elements");
+    for(int i=0;i<n;i++){
+        scanf("%d",&arr[i]);
+    }
+    printf("the unsorted array is\n");
+    for(int i=0;i<n;i++){
+        printf(" %d\n",arr[i]);
+    }
+    ins(arr,n);
+    return 0;
+}
